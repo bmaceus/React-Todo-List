@@ -5,7 +5,7 @@ import ToDoList from "./components/ToDoList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/dist/";
 
-import uuid from "uuid/v1";
+import { v1 as uuid } from "uuid";
 
 export default class App extends Component {
   state = {
@@ -76,6 +76,7 @@ export default class App extends Component {
     this.setState({
       items: filteredItem,
       item: selectedItem.title,
+      duedate: selectedItem.duedate,
       editItem: true,
       id: id,
       complete: selectedItem.complete,
@@ -109,6 +110,7 @@ export default class App extends Component {
           <div className='col-10 mx-auto col-md-8 '>
             <TodoInput
               item={this.state.item}
+              duedate={this.state.duedate}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
               editItem={this.state.editItem}
